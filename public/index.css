@@ -1,0 +1,331 @@
+.btn.focus, .btn:focus, button {
+    outline: 0;
+    box-shadow: none!important;
+}
+
+.item-center{
+    margin: 5px 10px 0 10px
+}
+
+.item-center h3{
+    padding: 10px 0 15px 0;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    color: rgb(59, 59, 59);
+
+}
+
+@media (max-width: 580px){
+    .item-center h3{
+        text-align: center;
+    }
+}
+
+a.headerId {
+    display: block;
+    position: relative;
+    visibility: hidden;
+    top: -110px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: 5px;
+}
+
+.header-button{
+    margin-right: 20px;
+}
+
+.header-container{
+    z-index: 2000;
+}
+
+.header-hr{
+    background-color: whitesmoke;
+}
+
+.menu-item{
+    max-width: 20rem;
+    margin: auto;
+}
+
+.card-img-top, .card-title, .card-text{
+    cursor: pointer;
+}
+
+.container-itemDetail{
+    display: flex;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    height: 100%;
+    padding: 0 3%;
+}
+
+.container-itemDetail img{
+    max-width: 100%;
+}
+
+.container-itemDetail .item-image{
+    display: inline-flex;
+    max-width: 50%;
+    margin-right: 15px;
+    align-items: center;
+}
+
+.container-itemDetail .item-description{
+    max-width: 50%;
+}
+
+.container-itemDetail h3{
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 650px){
+    .container-itemDetail{
+        display: inline-block;
+        max-width: 100%;
+        height: 100%;
+    }
+    .container-itemDetail .item-image{
+        max-width: 100%;
+    }
+    
+    .container-itemDetail .item-description{
+        max-width: 100%;
+    }
+
+    .container-itemDetail h3{
+        margin-top: 10px;
+    }
+    
+    .modal-content{
+        max-height: 200%;
+    }
+
+    .modal.show .modal-dialog{
+        margin:auto;
+    }
+}
+
+
+.modal-dialog{
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+}
+
+
+
+
+.modal-content{
+    height: auto;
+}
+
+.modal-footer{
+    justify-content: space-between;
+}
+
+
+.itemDetail-quantity{
+    display: flex;
+
+}
+
+.item-button{
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    margin: 0 5px;
+}
+
+.item-input{
+    width: 35px;
+    height: 35 px;
+    margin-left: 5 px;
+    margin-right: 5 px;
+    text-align: center;
+}
+
+.itemDetail-addCart{
+    flex-grow: 1;
+}
+
+
+.login-button:hover{
+    background-color: rgb(218, 216, 214);
+    border-color: rgb(218, 216, 214);
+}
+
+.login-header{
+    flex-direction: column;
+}
+
+.modal-header .btn-close {
+    position: relative;
+    bottom: 32px;
+}
+
+
+@keyframes rollout {
+    0% { transform: translateY(-10px); }
+    100% { transform: none; }
+  }
+.cart-button{
+    background-color: inherit;
+    border: inherit;
+    margin-left: 25px;
+    padding-right: 0;
+    animation: rollout 0.4s
+}
+
+.btn-primary:active {
+    transform: translateY(2px);
+}
+
+@media (max-width: 768px){
+    .cart-button{
+        margin-left: 0;
+        padding-left: 0;
+    }
+
+    .login-button{
+        margin-top: 5px;
+        margin-bottom: 15px;
+        max-width: 55%;
+    }
+
+    .nav-directory{
+        margin-top: 0;
+    }
+}
+
+.cart-button:hover{
+    background-color: inherit;
+    border: inherit;
+    transform: translateY(-0.25em)
+}
+
+.cart-counter{
+    display: inline-block;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    background-color: red;
+    position: relative;
+    right: 10px;
+    bottom: 5px;
+    
+}
+
+.cart-counter p{
+    position: relative;
+    bottom: 0;
+    padding: 0 5px;
+}
+
+.cart-btnClose{
+    background-color: inherit;
+    border-color: black;
+    min-width: 45px;
+    font-family: sans-serif;
+}
+
+.cart-btnClose:hover{
+    border-color: black;
+}
+
+.cartItem-container{
+    margin: 15px 0
+}
+
+.cartItem-img{
+    width: 150px;
+    height: 150px;
+}
+
+.cartItem-detail-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cartItem-detail{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cartItem-detail .cartItem-quantity{
+    display: flex;
+}
+
+.cartItem-detail .cartItem-input{
+    width: 35px;
+    height: 35px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.cartItem-detail .cartItem-button{
+    width: 35px;
+    height: 35px;
+    padding: 0
+}
+
+.cartItem-detail p{
+    margin: auto 0;
+    padding-bottom: 3px;
+}
+
+.cart-footer{
+    background-color: cornsilk;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 15px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 8px;
+}
+
+.cart-footer .cart-totalPrice{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.nav-secondary{
+    top:58px;
+    z-index: 1000;
+}
+
+@media (max-width: 576px){
+.nav-secondary {
+    visibility: hidden;
+    max-height: 0;
+}}
+
+
+
+
+
+
+
+
+
+/*If want to change Navbar Icon https://stackoverflow.com/questions/61836184/customize-navbar-toggler-icon-of-bootstrap */
+
+.offcanvas-title{
+    margin:auto;
+}
+
+.offcanvas-header{
+    background-color: lightgray;
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 8px;
+}
+
+.offcanvas-end {
+    width: 600px;
+}
+
+.modal-header, .modal-footer {
+    border-width: 0;
+}
