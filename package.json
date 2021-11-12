@@ -1,6 +1,7 @@
 {
   "name": "menu-app",
   "version": "0.1.0",
+  "main": "src/index.js",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",
