@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import Login from '../Auth/Login';
+import Auth from '../Auth/Auth';
 import Cart from '../Cart/Cart';
 import logo from '../../logo.png'
 
@@ -37,7 +37,7 @@ const NavHeader = ({cartItems, editItem}) => {
                     </Nav>
                     <hr className="header-hr"/>
                     <Nav>
-                        <Login />
+                        <Auth />
                     </Nav>
                 </Navbar.Collapse>
 

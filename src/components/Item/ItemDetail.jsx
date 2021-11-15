@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
-const ItemDetail = ({show, handleClose, img, title, text}) => {
+const ItemDetail = ({show, handleClose, img, title, text, id, onAddQuantity}) => {
     
     const [quantity, setQuantity] = useState(0)
 
@@ -24,6 +24,16 @@ const ItemDetail = ({show, handleClose, img, title, text}) => {
             setQuantity(e.target.value)
         }
     }
+
+    const addQuantity = () => {
+        let item = {
+            id: id,
+            quantity: quantity
+        }
+        setQuantity(0)
+        onAddQuantity(item)
+    }
+
     return (
         
     <Modal
@@ -64,7 +74,9 @@ const ItemDetail = ({show, handleClose, img, title, text}) => {
                 >
                 +</Button>       
             </div>
-            <Button className="itemDetail-addCart">
+            <Button className="itemDetail-addCart"
+                onClick={addQuantity}
+            >
                 Add To Cart
             </Button>
         </Modal.Footer>

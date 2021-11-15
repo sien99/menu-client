@@ -158,11 +158,18 @@ a.headerId {
 
 .login-header{
     flex-direction: column;
+    padding-bottom: 0;
+}
+
+.auth-closeButton{
+    position: relative;
+    align-self: flex-end;
+    bottom: 90px;
+    
 }
 
 .modal-header .btn-close {
     position: relative;
-    bottom: 32px;
 }
 
 

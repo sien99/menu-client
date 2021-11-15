@@ -25,7 +25,7 @@ const Cart = ({ cartItems, editItem }) => {
     // generate array of cartItemIds
     // Object.keys(cartItems)
 
-    // create collection of itemIds
+    // create collection of itemIds-quantity
     let cartObjects = []
     let totalPrice = 0;
     let counter = 0;

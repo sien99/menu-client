@@ -17,6 +17,10 @@ const Main = () => {
     const addItem = (item) => {
        
         const { id } = item ;
+        let quantity = 1
+        if (item.quantity){
+            quantity=Number(item.quantity)
+        }
         try {
             
             // check item exist in db
@@ -25,7 +29,7 @@ const Main = () => {
                 console.log('empty cart');
                 setCartItems({ 
                     ...cartItems,
-                    [id]: 1  
+                    [id]: quantity  
                   })
                 
             }else{
@@ -33,19 +37,10 @@ const Main = () => {
                 // console.log(prev);
                 setCartItems({
                 ...cartItems, 
-                [id]: prev+1  
+                [id]: prev+quantity  
                 })
             }
             
-            // if(!cartItems[item.id]){
-            //     console.log('item not in cart');
-            // }else{
-            //     setCartItems({
-            //       ...cartItems, 
-            //       [item.id]: 0  
-            //     })
-            //     console.log('item not in cart, init');
-            // }
         } catch (err) {
             console.log(err);
         }

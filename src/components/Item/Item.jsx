@@ -8,32 +8,15 @@ const Item = (props) => {
     // const [quantity, setQuantity] = useState(0)
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    // const onAdd = () => {
-    //     setQuantity(prev=>prev+1)
-    // }
-    // const onSubstract = () => {
-    //     setQuantity(prev=>{
-    //         console.log(prev);
-    //        if (prev===0) {
-    //            return 0
-    //        }else{
-    //         return (prev-1)
-    //        }
-    //     })
-    // }
-    // const onChange = (e) => {
-    //     const re = /^[0-9\b]+$/;
-    //     if (e.target.value === '' || re.test(e.target.value)) {
-    //         setQuantity(e.target.value)
-    //     }
-    // }
-
-    // handle Cart
     
     const addItem = (e) => {
-        let item = {}
-        item.id = e.target.value;
+        let item = {
+            id : e.target.value,
+        }        
+        props.onAdd(item)
+    }
+
+    const onAddQuantity = (item) =>{
         props.onAdd(item)
     }
 
@@ -63,6 +46,7 @@ const Item = (props) => {
          {...props}
          show={show}
          handleClose={handleClose}
+         onAddQuantity={onAddQuantity}
         />
 
         </>
