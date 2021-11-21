@@ -5,6 +5,7 @@ const ItemDetail = ({show, handleClose, img, title, text, id, onAddQuantity}) =>
     
     const [quantity, setQuantity] = useState(0)
 
+    // edit quantity
     const onAdd = () => {
         setQuantity(prev=>prev+1)
     }
@@ -24,7 +25,7 @@ const ItemDetail = ({show, handleClose, img, title, text, id, onAddQuantity}) =>
             setQuantity(e.target.value)
         }
     }
-
+    // push item quantity to 
     const addQuantity = () => {
         let item = {
             id: id,

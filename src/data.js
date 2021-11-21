@@ -1,3 +1,4 @@
+import sha256 from 'crypto-js/sha256';
 import rice from './pictures/rice.jpg';
 import friedrice from './pictures/friedrice.jpg'
 import noodles from './pictures/noodles.jpg';
@@ -35,7 +36,7 @@ const items = [
 ]
 
 items.map((item,idx)=> {
-    return item.id = ((idx+1)*100).toString() + item.type.slice(0,3)
+    return item.id = sha256(((idx+1)*100).toString() + item.type.slice(0,3)).toString()
 })
 
 export default items

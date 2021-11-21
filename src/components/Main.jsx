@@ -6,10 +6,6 @@ import ItemList from './Item/ItemList';
 
 
 const Main = () => {
-    // Object.values(obj) return values of js obj in array
-    // reduce(reducer) return sum of array
-    // const sumValues = obj => Object.values(obj).reduce((prevValue, curValue) => prevValue + curValue);
-
     // cartItems : key(id) value pair 
     const [cartItems, setCartItems] = useState({})
     // let cartItemTypes = Object.keys(cartItems).length

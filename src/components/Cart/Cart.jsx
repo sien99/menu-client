@@ -4,6 +4,7 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import CartItem from './CartItem';
 import items from '../../data';
 import sha256 from 'crypto-js/sha256';
+import { checkout } from '../../api';
 
 const Cart = ({ cartItems, editItem }) => {
 
@@ -40,6 +41,16 @@ const Cart = ({ cartItems, editItem }) => {
       }
     })
 
+    const onCheckout = () => {
+      checkout(cartObjects)
+      .then((res)=>{
+        console.log(res);
+        const { url } = res.data;
+        console.log(url);
+        window.location = url;
+      })
+      .catch(err=>console.log(err.message))
+    }
 
     return (
       <>
@@ -79,7 +90,11 @@ const Cart = ({ cartItems, editItem }) => {
             <div className="cart-totalPrice">
               <b>Total</b><b>S${(totalPrice).toFixed(2)}</b> 
             </div>
-            <Button>Place Order</Button>
+            <Button
+              onClick={onCheckout}
+            >
+              Place Order
+            </Button>
           </div>
         </Offcanvas>
       </>

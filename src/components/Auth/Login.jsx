@@ -1,16 +1,27 @@
 import React, { useState, useRef } from "react";
 import { Button, Modal, Card, Alert, Form } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LockIcon from '@mui/icons-material/Lock';
 import CloseIcon from '@mui/icons-material/Close';
+import { signIn } from "../../api";
 
-const Login = ({ show, handleClose, onToggle }) => {
 
-  const history = useHistory();
+const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
+
+  // axios.post('/user', {
+  //   firstName: 'Fred',
+  //   lastName: 'Flintstone'
+  // })
+  // .then(function (response) {
+  //   console.log(response);
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });
 
   const emailRef = useRef();
   const passwordRef = useRef();
-  // const { login, currentUser } = useAuth()
+  
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   
@@ -21,13 +32,30 @@ const Login = ({ show, handleClose, onToggle }) => {
     try {
       setError("");
       setLoading(true); //to prevent user accidentally click multi times
-      console.log(emailRef.current.value, passwordRef.current.value);
-      // await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/");
+
+      const formData = {
+        email: emailRef.current.value,
+        password: passwordRef.current.value
+      }
+      // Axios Api
+      await signIn(formData)
+      .then(function (response) {
+        console.log(response);
+        if (response.data.success) {
+          setError(false)
+          onLoggedIn(response.data) //pass data to Auth
+        } 
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      setLoading(false); //re-enable button
+      // history.push("/");
     } catch (error) {
       setError("Failed to sign in.");
+      setLoading(false);
     }
-    setLoading(false);
+    
   };
 
   // const handleShow = () => setShow(true);

@@ -1,9 +1,10 @@
 import React, { useRef, useState } from 'react'
 import { Modal, Form, Button, Alert, Card } from 'react-bootstrap'
 // import { useAuth } from '../contexts/AuthContext'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import CloseIcon from '@mui/icons-material/Close';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
+import { signUp } from '../../api';
 
 const Signup = ({ show, handleClose, onToggle }) => {
     const emailRef = useRef()
@@ -13,11 +14,11 @@ const Signup = ({ show, handleClose, onToggle }) => {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
-    const history = useHistory()
+    // const history = useHistory()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(history);
+
         // validation check
         if (passwordRef.current.value !== 
         passwordConfirmRef.current.value){
@@ -27,9 +28,29 @@ const Signup = ({ show, handleClose, onToggle }) => {
         try {
           setError('')
           setLoading(true) //to prevent user accidentally click multi times
-          console.log(emailRef.current.value, passwordRef.current.value);
-        //   await signup(emailRef.current.value, passwordRef.current.value)  
-          setSuccess("Successfully register an account!")
+        
+          const formData = {
+            email: emailRef.current.value,
+            password: passwordRef.current.value
+          }
+          // Axios Api
+          await signUp(formData)
+          .then(function (response) {
+            console.log(response);
+            // const { data, headers, status } = response
+            // console.log(data,headers,status);
+            if (response.data.success) {
+                setError(false)
+                setSuccess("Successfully register an account!")
+            } 
+          })
+          .catch(function(error) {
+            const { data } = error.response
+            console.log(error.response);
+            setError(data.msg)
+          });
+          
+          
         } catch (error) {
             setError("Failed to create an account.")
         }
