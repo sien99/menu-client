@@ -59,6 +59,7 @@ const Signup = ({ show, handleClose, onToggle }) => {
 
     const toggleLogin = () => {
         setSuccess(false)
+        setError(false)
         onToggle()
     }
 

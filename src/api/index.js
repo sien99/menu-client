@@ -18,9 +18,19 @@ API.interceptors.request.use((req) => {
 // export const updatePost = (id, updatedPost) => API.patch(`/posts/${id}`, updatedPost);
 // export const deletePost = (id) => API.delete(`/posts/${id}`);
 
-export const getUser = () => API.get('/users/protected');
+export const getUser = (_id) => API.get(`/users/protected/${_id}`);
+
 export const signIn = (formData) => API.post('/users/signin', formData);
 export const signUp = (formData) => API.post('/users/signup', formData);
 
-// purchase
+export const updateUser = (payload) => API.put(`/users/update/${payload.user_id}`,payload)
+
+// Payment (stripe api)
+export const createCustomer = (_id) => API.get(`/payment/create-customer-id/${_id}`)
+
+export const getSessionDetail = (sessionId) => API.get(`/payment/session-detail?session_id=${sessionId}`);
+
+export const getPurchaseHistory = (customer_id) => API.get(`/payment/purchase-history?customer_id=${customer_id}`)
+
 export const checkout = (cartObjects) => API.post('/payment/create-checkout-session', cartObjects);
+

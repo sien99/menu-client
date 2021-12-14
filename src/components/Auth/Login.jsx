@@ -47,6 +47,8 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
         } 
       })
       .catch(function (error) {
+        setError("Invalid credentials.");
+        setLoading(false);
         console.log(error);
       });
       setLoading(false); //re-enable button
@@ -58,6 +60,10 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
     
   };
 
+  const onClose = () => {
+    handleClose()
+    setError("") 
+  }
   // const handleShow = () => setShow(true);
 
   return (
@@ -72,7 +78,7 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
             <LockIcon style={{ fontSize:"5rem", marginTop:"15px"}}/>
           </Modal.Title>
           <Button variant="outline-dark" className="auth-closeButton" 
-            onClick={()=>handleClose()}
+            onClick={onClose}
           >
             <CloseIcon />
           </Button>

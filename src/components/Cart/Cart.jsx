@@ -8,7 +8,7 @@ import { checkout } from '../../api';
 
 const Cart = ({ cartItems, editItem }) => {
 
-    // Generate key
+    // Generate key only render on mount
     // https://reactjs.org/docs/hooks-reference.html#usememo
     const randomNum = useMemo(() => Math.random(), []);
 
@@ -42,7 +42,13 @@ const Cart = ({ cartItems, editItem }) => {
     })
 
     const onCheckout = () => {
-      checkout(cartObjects)
+      const storeData = JSON.parse(localStorage.getItem("profile"))
+      const payload = {
+        cartObjects: cartObjects,
+        customer_id: storeData?.customer_id,
+
+      }
+      checkout(payload)
       .then((res)=>{
         console.log(res);
         const { url } = res.data;
@@ -54,6 +60,7 @@ const Cart = ({ cartItems, editItem }) => {
 
     return (
       <>
+       
         <Button key={randomNum*(1+counter)} className="cart-button" variant="dark" onClick={handleShow}>
           <ShoppingBagIcon sx={{ fontSize: 30 }}/>
           <div className="cart-counter">
@@ -92,6 +99,7 @@ const Cart = ({ cartItems, editItem }) => {
             </div>
             <Button
               onClick={onCheckout}
+              disabled={(Number(counter)===0) ? true:false}
             >
               Place Order
             </Button>

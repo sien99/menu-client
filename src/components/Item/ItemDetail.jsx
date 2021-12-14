@@ -3,7 +3,7 @@ import { Button, Modal } from 'react-bootstrap';
 
 const ItemDetail = ({show, handleClose, img, title, text, id, onAddQuantity}) => {
     
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
 
     // edit quantity
     const onAdd = () => {
@@ -12,8 +12,8 @@ const ItemDetail = ({show, handleClose, img, title, text, id, onAddQuantity}) =>
     const onSubstract = () => {
         setQuantity(prev=>{
             console.log(prev);
-           if (prev===0) {
-               return 0
+           if (prev===1) {
+               return 1
            }else{
             return (prev-1)
            }
@@ -31,8 +31,9 @@ const ItemDetail = ({show, handleClose, img, title, text, id, onAddQuantity}) =>
             id: id,
             quantity: quantity
         }
-        setQuantity(0)
+        setQuantity(1)
         onAddQuantity(item)
+        handleClose()
     }
 
     return (
@@ -58,11 +59,12 @@ const ItemDetail = ({show, handleClose, img, title, text, id, onAddQuantity}) =>
                 </div>
             </div>
         </Modal.Body>
-        <Modal.Footer sticky-btm>
+        <Modal.Footer sticky-btm className="itemDetail-modal-footer">
             <div className="itemDetail-quantity">
                 <Button 
                     className="item-button"
                     onClick={onSubstract}
+                    disabled={(Number(quantity)===1)&&true}
                 >
                 -</Button>
                 <input type="text"

@@ -9,7 +9,7 @@ import logo from '../../logo.png'
 const NavHeader = ({cartItems, editItem}) => {
     const [isExpand, setIsExpand] = useState(false)
     return (
-        <Navbar sticky="top" bg="dark" variant="dark" expand="md" expanded={isExpand}>
+        <Navbar className="nav-header" sticky="top" bg="dark" variant="dark" expand="md" expanded={isExpand}>
             <Container fluid className="header-container">
                 <Navbar.Toggle onClick={()=>setIsExpand(prev=>!prev)} aria-controls="basic-navbar-nav" />
 
@@ -25,8 +25,7 @@ const NavHeader = ({cartItems, editItem}) => {
                 
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
+                        <Nav.Link href="/main">Home</Nav.Link>
                         {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

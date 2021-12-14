@@ -3,6 +3,16 @@
     box-shadow: none!important;
 }
 
+.nav-header {
+    background-color: #3d3d3d;
+    background-image: url("https://www.transparenttextures.com/patterns/random-grey-variations.png");
+}
+
+.nav-secondary {
+    background-color: #ffffff2f;
+    background-image: url("https://www.transparenttextures.com/patterns/old-mathematics.png");
+}
+
 .item-center{
     margin: 5px 10px 0 10px
 }
@@ -13,6 +23,11 @@
     font-size: 1.5rem;
     color: rgb(59, 59, 59);
 
+}
+@media (max-width: 555px){
+    .cartItem-detail-container{
+        width: 100%;
+    }
 }
 
 @media (max-width: 580px){
@@ -42,9 +57,17 @@ a.headerId {
     background-color: whitesmoke;
 }
 
+.main-body{
+    padding-bottom: 25px; 
+    background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/old-mathematics.png");
+
+}
+
 .menu-item{
     max-width: 20rem;
     margin: auto;
+    border: none;
 }
 
 .card-img-top, .card-title, .card-text{
@@ -107,6 +130,10 @@ a.headerId {
     }
 }
 
+.itemDetail-modal-footer{
+    box-shadow: rgb(0 0 0 / 20%) 0px 0px 8px;
+}
+
 
 .modal-dialog{
     height: 100%;
@@ -155,6 +182,7 @@ a.headerId {
     background-color: rgb(218, 216, 214);
     border-color: rgb(218, 216, 214);
 }
+
 
 .login-header{
     flex-direction: column;
@@ -304,18 +332,21 @@ a.headerId {
     z-index: 1000;
 }
 
-@media (max-width: 576px){
+
+
+/* @media (max-width: 576px){
 .nav-secondary {
     visibility: hidden;
     max-height: 0;
-}}
+}} */
 
+.PO-table-cell {
+    width: 24%;
+}
 
-
-
-
-
-
+.table {
+    margin: auto;
+}
 
 
 /*If want to change Navbar Icon https://stackoverflow.com/questions/61836184/customize-navbar-toggler-icon-of-bootstrap */
@@ -336,3 +367,22 @@ a.headerId {
 .modal-header, .modal-footer {
     border-width: 0;
 }
+
+.error-template {padding: 40px 15px;text-align: center;}
+.error-actions {margin-top:15px;margin-bottom:15px;}
+.error-actions .btn { margin-right:10px; }
+
+.loader {
+    margin: 20% auto;
+    border: 9px solid #f3f3f3; /* Light grey */
+    border-top: 9px solid #070808; 
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
