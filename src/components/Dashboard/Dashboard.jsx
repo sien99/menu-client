@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getPurchaseHistory, getUser } from '../../api';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router-dom';
 import PurchasedOrder from './PurchasedOrder';
 
 const Dashboard = () => {
@@ -14,7 +14,7 @@ const Dashboard = () => {
     useEffect(() => {
         // when localStorage have data but state data empty due to reload
         const redirect = (error) => {
-            alert(`You are authorized to view this page, you will be redirected to home. Error message: ${error}`)
+            alert(`You are not authorized to view this page, you will be redirected to home. Error message: ${error}`)
             navigate("/main")
         }
 
@@ -29,7 +29,7 @@ const Dashboard = () => {
                     console.log(res);
                     if(res.data.success){
                         // updateUserData(storedData)
-                        getPurchaseHistory(customer_id)
+                        getPurchaseHistory(customer_id,user_id)
                             .then((res)=>{
                                 setLineItems(res.data.lineItems);
                                 setReceiptUrls(res.data.receiptUrls);
@@ -38,7 +38,9 @@ const Dashboard = () => {
                             .then(()=>{
                              setIsLoggedIn(true)
                              setIsLoading(false)                                
-                            })                     
+                            })
+                            .catch(err => redirect(err)) 
+                            // if auth header mutated, reject                   
                         
                     };
                 })
@@ -66,7 +68,14 @@ const Dashboard = () => {
             :   
                 isLoggedIn &&
                 <>
-                    {                 
+                    {   
+                        lineItems.length ===0 ?
+                        <div style={{height:"500px", padding:"180px 180px"}}>
+                           <h2>You have not placed any order.</h2> 
+                           <Link to="/"> Order Now? </Link>
+                        </div>
+                        
+                        :
                         lineItems.map((orderArr,idx) => (                           
                             <PurchasedOrder
                                 key={orderArr[0].created}

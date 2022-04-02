@@ -25,6 +25,10 @@ const Signup = ({ show, handleClose, onToggle }) => {
             return setError('Passwords do not match! Please enter correct confirmation password')
         }
 
+        if (passwordRef.current.value.length < 6) {
+            return setError('Password must be at least 6 characters.')
+        }
+
         try {
           setError('')
           setLoading(true) //to prevent user accidentally click multi times

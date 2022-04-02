@@ -154,12 +154,14 @@ const Auth = () => {
             onToggle={onToggle}
             handleClose={onCloseSignUp}
         />
+        <div style={{width:"15px"}}></div>
         <Button 
-            style={{marginLeft:"15px",display: isLoggedIn? '':"none"}}
+            style={{display: isLoggedIn? '':"none"}}
             variant="danger" onClick={logout}
         >
             Logout
         </Button>
+        <div style={{width:"15px", height: "15px" }}></div>
         </>
 
     )

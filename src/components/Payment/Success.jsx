@@ -19,13 +19,15 @@ const Success = () => {
     const id = query.get("session_id")  // URLSearchParams.get(key) return value
     console.log(id);
     const LoadData = async(id) => {
+        const storedData = JSON.parse(localStorage.getItem("profile"))
+        const { user_id } = storedData;
         try {
             const res = await getSessionDetail(id)
             if(res){
                 console.log("Payment successful, retrieved session data:");
                 console.log(res);
                 // Update Redis Cache
-                const update = await getPurchaseHistory(res.data.session.customer) 
+                const update = await getPurchaseHistory(res.data.session.customer, user_id) 
                 if(update) console.log("Updated cache",update);
                 setIsLoading(false)
             }

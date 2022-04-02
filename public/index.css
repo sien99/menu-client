@@ -5,12 +5,12 @@
 
 .nav-header {
     background-color: #3d3d3d;
-    background-image: url("https://www.transparenttextures.com/patterns/random-grey-variations.png");
+    /* background-image: url("https://www.transparenttextures.com/patterns/random-grey-variations.png"); */
 }
 
 .nav-secondary {
-    background-color: #ffffff2f;
-    background-image: url("https://www.transparenttextures.com/patterns/old-mathematics.png");
+    background-color: #204969;
+    /* background-image: url("https://www.transparenttextures.com/patterns/old-mathematics.png"); */
 }
 
 .item-center{
@@ -59,8 +59,8 @@ a.headerId {
 
 .main-body{
     padding-bottom: 25px; 
-    background-color: #ffffff;
-    background-image: url("https://www.transparenttextures.com/patterns/old-mathematics.png");
+    background-color: #fff7f7;
+    /* background-image: url("https://www.transparenttextures.com/patterns/old-mathematics.png"); */
 
 }
 
@@ -208,7 +208,7 @@ a.headerId {
 .cart-button{
     background-color: inherit;
     border: inherit;
-    margin-left: 25px;
+    /* margin-left: 25px; */
     padding-right: 0;
     animation: rollout 0.4s
 }
@@ -328,8 +328,9 @@ a.headerId {
 }
 
 .nav-secondary{
-    top:58px;
+    top:76px;
     z-index: 1000;
+    box-shadow:rgb(0 0 0 / 20%) 0px 0px 8px;
 }
 
 

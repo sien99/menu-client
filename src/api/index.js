@@ -30,7 +30,7 @@ export const createCustomer = (_id) => API.get(`/payment/create-customer-id/${_i
 
 export const getSessionDetail = (sessionId) => API.get(`/payment/session-detail?session_id=${sessionId}`);
 
-export const getPurchaseHistory = (customer_id) => API.get(`/payment/purchase-history?customer_id=${customer_id}`)
+export const getPurchaseHistory = (customer_id,user_id) => API.get(`/payment/purchase-history/${customer_id}/${user_id}`);
 
 export const checkout = (cartObjects) => API.post('/payment/create-checkout-session', cartObjects);
 

@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import Auth from '../Auth/Auth';
 import Cart from '../Cart/Cart';
-import logo from '../../logo.png'
-
+import logo from '../../logo.png';
 
 
 const NavHeader = ({cartItems, editItem}) => {
@@ -17,10 +16,10 @@ const NavHeader = ({cartItems, editItem}) => {
                     <img
                         alt=""
                         src={logo}
-                        width="15"
-                        height="30"
-                        className="d-inline-block align-top"
-                    />{' '}Wayfarer's
+                        width="50"
+                        height="50"
+                        className="d-inline-block align-middle"
+                    />{' '}Simple Food
                 </Navbar.Brand>
                 
                 <Navbar.Collapse id="basic-navbar-nav">
