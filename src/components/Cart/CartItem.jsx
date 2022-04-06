@@ -63,6 +63,7 @@ const CartItem = ({title, img, price, quantity, id, editItem}) => {
                     <div className="cartItem-detail">
                         <p>{title}</p>
                         <Button
+                            variant="danger"
                             onClick={onDelete}
                         >
                             Delete
