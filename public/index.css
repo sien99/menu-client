@@ -387,3 +387,9 @@ a.headerId {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+/* To eliminate password eye on edge */
+/* https://docs.microsoft.com/en-us/microsoft-edge/web-platform/password-reveal#visibility-of-the-control */
+::-ms-reveal {
+    display: none;
+}

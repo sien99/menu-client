@@ -14,6 +14,7 @@ const Signup = ({ show, handleClose, onToggle }) => {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
     // const history = useHistory()
 
     const handleSubmit = async (e) => {
@@ -64,6 +65,7 @@ const Signup = ({ show, handleClose, onToggle }) => {
     const toggleLogin = () => {
         setSuccess(false)
         setError(false)
+        setShowPassword(false)
         onToggle()
     }
 
@@ -103,22 +105,34 @@ const Signup = ({ show, handleClose, onToggle }) => {
                         <Form.Group id="password">
                             <Form.Label>Password</Form.Label>
                             {/* ref for POST value */}
-                            <Form.Control type="password" 
-                            ref={passwordRef} required />
+                            <Form.Control 
+                                type={showPassword?"text":"password"}  
+                                ref={passwordRef} required 
+                            />
                         </Form.Group>
                         <Form.Group id="password-confirm">
                             <Form.Label>Confirm Password</Form.Label>
                             {/* ref for POST value */}
-                            <Form.Control type="password" 
-                            ref={passwordConfirmRef} required />
-        
+                            <Form.Control 
+                                type={showPassword?"text":"password"}  
+                                ref={passwordConfirmRef} required 
+                            />
+                            <Form.Check 
+                                className="mt-2"
+                                type="checkbox"
+                                id="show-password"
+                                label={`Show Password`}
+                                onClick={()=>setShowPassword(!showPassword)}
+                            />
                         </Form.Group>
                         <Button disabled={loading} className="w-100 text-center mt-3" style={{height:"50px"}} type="submit">
                         Sign Up
                         </Button>
                     </Form>
+
                     </Card.Body>
                 </Card>
+                    
                     <div className="w-100 text-center mt-2">
                         Already have an account? 
                         <a href="#login" onClick={toggleLogin}>Login</a>
