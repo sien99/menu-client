@@ -61,7 +61,7 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
   };
 
   const toggleSignUp = () => {
-    setShowPassword(false)
+    setShowPassword(false);
     onToggle()
   }
   const onClose = () => {
