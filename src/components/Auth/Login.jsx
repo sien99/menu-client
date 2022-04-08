@@ -62,7 +62,7 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
 
   const toggleSignUp = () => {
     setShowPassword(false);
-    onToggle()
+    onToggle();
   }
   const onClose = () => {
     handleClose()
