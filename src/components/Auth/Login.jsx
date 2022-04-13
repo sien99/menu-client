@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Button, Modal, Card, Alert, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import LockIcon from '@mui/icons-material/Lock';
 import CloseIcon from '@mui/icons-material/Close';
 import { signIn } from "../../api";
@@ -110,9 +110,9 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
                   Login
                 </Button>
               </Form>
-              <div className="w-100 text-center mt-3">
+              {/* <div className="w-100 text-center mt-3">
                 <Link to="/forgot-password">Forgot Password?</Link>
-              </div>
+              </div> */}
             </Card.Body>
           </Card>
           <div className="w-100 text-center mt-2">

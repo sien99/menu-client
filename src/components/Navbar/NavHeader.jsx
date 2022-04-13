@@ -12,7 +12,7 @@ const NavHeader = ({cartItems, editItem}) => {
             <Container fluid className="header-container">
                 <Navbar.Toggle onClick={()=>setIsExpand(prev=>!prev)} aria-controls="basic-navbar-nav" />
 
-                <Navbar.Brand href="#home">        
+                <Navbar.Brand >        
                     <img
                         alt=""
                         src={logo}
