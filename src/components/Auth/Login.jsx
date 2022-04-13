@@ -24,7 +24,7 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
   
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,6 +60,10 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
     
   };
 
+  const toggleSignUp = () => {
+    setShowPassword(false);
+    onToggle();
+  }
   const onClose = () => {
     handleClose()
     setError("") 
@@ -98,9 +102,18 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
                 <Form.Group id="password">
                   <Form.Label className="mt-1">Password</Form.Label>
                   {/* ref for POST value */}
-                  <Form.Control type="password" ref={passwordRef} required />
+                  <Form.Control 
+                    type={showPassword?"text":"password"} 
+                    ref={passwordRef} required 
+                  />
                 </Form.Group>
-
+                <Form.Check 
+                  className="mt-2"
+                  type="checkbox"
+                  id="show-password"
+                  label={`Show Password`}
+                  onClick={()=>setShowPassword(!showPassword)}
+                />                
                 <Button
                   disabled={loading}
                   className="w-100 text-center mt-3"
@@ -116,7 +129,7 @@ const Login = ({ show, handleClose, onToggle, onLoggedIn }) => {
             </Card.Body>
           </Card>
           <div className="w-100 text-center mt-2">
-            Need an account? <a href="#signup" onClick={onToggle}>Sign Up</a>
+            Need an account? <a href="#signup" onClick={toggleSignUp}>Sign Up</a>
           </div>
         </Modal.Body>
       </Modal>
