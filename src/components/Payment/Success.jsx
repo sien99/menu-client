@@ -14,12 +14,21 @@ const useQuery = () => {
 
 const Success = () => {
     const [isLoading, setIsLoading] = useState(true)
+    const [isGuest, setIsGuest] = useState(false)
 
     let query = useQuery();
     const id = query.get("session_id")  // URLSearchParams.get(key) return value
     console.log(id);
     const LoadData = async(id) => {
         const storedData = JSON.parse(localStorage.getItem("profile"))
+        
+        //* Guess Purchase 
+        if (!storedData || !("user_id" in storedData)) {
+            setIsGuest(true)
+            setIsLoading(false)
+            return
+        }
+
         const { user_id } = storedData;
         try {
             const res = await getSessionDetail(id)
@@ -53,10 +62,17 @@ const Success = () => {
                     Payment Successful!
                     
                 </h1>
+                
                 <p>
+                    {!isGuest ?
                     <Link to="/dashboard">
                         Go To Dashboard
                     </Link>
+                    :
+                    <Link to="/main">
+                        Back to Home
+                    </Link>
+                    }
                 </p>
             </div>
 
