@@ -69,7 +69,6 @@ const Main = () => {
     }, [pathArray])
     
     //#endregion
-    
     return (
         <div className="main-body">
             <NavHeader 
