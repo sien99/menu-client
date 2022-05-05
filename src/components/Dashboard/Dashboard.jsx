@@ -19,6 +19,7 @@ const Dashboard = () => {
         }
 
         const initData = async() => {
+            console.time("Time spent to retrieve data");
             if(localStorage.getItem("profile")){
                 setIsLoading(true)
                 const storedData = JSON.parse(localStorage.getItem("profile"))
@@ -47,11 +48,12 @@ const Dashboard = () => {
                 .catch((err)=>{
                     console.error(err.response.data);
                     // if token expired, clear user localStorage
-                    redirect(err)
+                    redirect(err);
                 })
             }else{
-                redirect("User profile not found.")
+                redirect("User profile not found.");
             }
+            console.timeEnd("Time spent to retrieve data");
         }
 
 

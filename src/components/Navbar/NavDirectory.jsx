@@ -4,6 +4,7 @@ import useWindowDimensions from '../../helper/helper'
 
 const NavDirectory = () => {
     const { width: windowWidth } = useWindowDimensions()
+    
     return (
         <Navbar sticky="top" collapseOnSelect expand={true} bg="light" variant="light" className="nav-secondary">
             <Container fluid className="nav-directory">

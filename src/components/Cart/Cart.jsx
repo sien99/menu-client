@@ -30,6 +30,7 @@ const Cart = ({ cartItems, editItem }) => {
     let cartObjects = []
     let totalPrice = 0;
     let counter = 0;
+
     items.forEach(item => {
       if (isObjectExist(item.id)){
         let itemObj = item;
